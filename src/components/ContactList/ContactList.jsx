@@ -13,7 +13,7 @@ import {
 import { useEffect } from 'react';
 import { deleteContacts, fetchContacts } from '../../Redux/Contacts/operations';
 import { nanoid } from 'nanoid';
-import Loader from 'components/Loader/Loader';
+import { Loader } from 'components/Loader/Loader';
 
 export const ContactList = () => {
   const dispatch = useDispatch();

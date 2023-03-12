@@ -3,8 +3,6 @@ export const initialState = {
   isLoading: false,
   contacts: {
     items: [],
-    filter: {
-      value: '',
-    },
+    filter: '',
   },
 };

@@ -1,6 +1,6 @@
 import { Oval } from 'react-loader-spinner';
 
-export default function Loader() {
+export const Loader = () => {
   return (
     <div
       style={{ display: 'flex', justifyContent: 'center', margin: '10px 0px' }}
@@ -19,4 +19,4 @@ export default function Loader() {
       />
     </div>
   );
-}
+};
