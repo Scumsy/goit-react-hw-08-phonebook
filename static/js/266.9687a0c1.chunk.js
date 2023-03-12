@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkphonebook_application=self.webpackChunkphonebook_application||[]).push([[266],{1266:function(n,e,i){i.r(e),i.d(e,{default:function(){return r}});var o=i(184);function r(){return(0,o.jsx)("div",{children:(0,o.jsxs)("h1",{children:["My Phonebook",(0,o.jsx)("span",{role:"img","aria-label":"Greeting icon",children:"\ud83d\udc81\u200d\u2640\ufe0f"})]})})}}}]);
+//# sourceMappingURL=266.9687a0c1.chunk.js.map
