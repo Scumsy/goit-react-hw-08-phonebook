@@ -10,8 +10,8 @@ import {
   selectFilter,
   selectLoadingStatus,
 } from 'Redux/Contacts/selectors';
-import { useEffect } from 'react';
-import { deleteContacts, fetchContacts } from '../../Redux/Contacts/operations';
+
+import { deleteContacts } from '../../Redux/Contacts/operations';
 import { nanoid } from 'nanoid';
 import { Loader } from 'components/Loader/Loader';
 
@@ -29,33 +29,32 @@ export const ContactList = () => {
     contact.name.toString().toLowerCase().includes(filterToLowerCase)
   );
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <>
-      <ContactListStyle>
-        {error && <li>{error}</li>}
+      {isLoading && <Loader />}
+      {isLoading ? (
+        <h3>Loading contacts</h3>
+      ) : (
+        <ContactListStyle>
+          {error && <h3>{error}</h3>}
 
-        {isLoading && <Loader />}
-
-        {filteredContacts.length >= 1 ? (
-          filteredContacts.map(({ id, name, phone }) => (
-            <ContactListItemStyle key={nanoid()}>
-              {name}: {phone}
-              <DeleteButton
-                type="button"
-                onClick={() => dispatch(deleteContacts(id))}
-              >
-                Delete
-              </DeleteButton>
-            </ContactListItemStyle>
-          ))
-        ) : (
-          <h3>No contacts yet</h3>
-        )}
-      </ContactListStyle>
+          {filteredContacts.length >= 1 ? (
+            filteredContacts.map(({ id, name, number }) => (
+              <ContactListItemStyle key={nanoid()}>
+                {name}: {number}
+                <DeleteButton
+                  type="button"
+                  onClick={() => dispatch(deleteContacts(id))}
+                >
+                  Delete
+                </DeleteButton>
+              </ContactListItemStyle>
+            ))
+          ) : (
+            <h3>No contacts yet</h3>
+          )}
+        </ContactListStyle>
+      )}
     </>
   );
 };
